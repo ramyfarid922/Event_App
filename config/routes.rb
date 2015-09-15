@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/show" => "events#watch"
   put "/event_update" => "events#update"
   delete "/event_delete" => "events#destroy"
+  get "/pages/welcome" => "pages#welcome"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
