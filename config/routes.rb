@@ -4,12 +4,14 @@ Rails.application.routes.draw do
   
   post "/login" => "users#login"
   post "/going" => "events#going"
-  get "/myevents" => "events#myevents"
-  get  "/view" => "events#view"
-  get "/search" => "events#search"
-  get "/show" => "events#watch"
+  post "/myevents" => "events#myevents"
+  post  "/view" => "events#view"
+  post "/search" => "events#search"
+  post "/show" => "events#watch"
+  post "/newevents" => "events#index"
   put "/event_update" => "events#update"
   delete "/event_delete" => "events#destroy"
+  
   get "/pages/welcome" => "pages#welcome"
 
   # The priority is based upon order of creation: first created -> highest priority.
