@@ -1,5 +1,7 @@
 class UsersController < AccessController
   before_action :authenticate, only: [:show, :edit, :update, :destroy]
+
+
   # GET /users
   # GET /users.json
   def index
@@ -10,6 +12,7 @@ class UsersController < AccessController
   # GET /users/1.json
   def show
     @current_user
+    set_user
   end
 
   # GET /users/new
@@ -68,7 +71,7 @@ class UsersController < AccessController
        #Rails.logger.info "API authentication:#{username} #{password}"
         if User.exists?(username: params[:username], password: params[:password])
          @user = User.find_by_username(params[:username])
-         render :template=>"users/show.json.jbuilder", :status=> :ok, localion:@user,:formats => [:json]
+         render :template=>"users/show.json.jbuilder", :status=> :ok, location:@user,:formats => [:json]
         else
           render :template=>"users/error.json.jbuilder",locals:{message: "Wrong Username or Password"},:success => true, :status => :ok ,:formats => [:json]
         end   
