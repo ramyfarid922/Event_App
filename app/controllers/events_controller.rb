@@ -18,8 +18,8 @@ class EventsController < AccessController
   end
 
   def watch
-     @event = Event.find_by_name(params[:name])
-    # @event = Event.find(params[:id])
+    # @event = Event.find_by_name(params[:name])
+     @event = Event.find(params[:id])
     render :template=>"events/show.json.jbuilder", :status=> :ok, :formats => [:json]
 
   end
