@@ -8,8 +8,8 @@ class EventsController < AccessController
     @j.each do |j|
       @u <<j.event_id
     end
-    @event = Event.where.not(id: @u).where.not(username:current_user.username)
-    render :template=>"events/index.json.jbuilder", :status=> :ok, locals: { events: @event}, :formats => [:json]
+    @events = Event.where.not(id: @u).where.not(username:current_user.username)
+    render :template=>"events/index.json.jbuilder", :status=> :ok, locals: { events: @events}, :formats => [:json]
   end
 
   # GET /events/1
