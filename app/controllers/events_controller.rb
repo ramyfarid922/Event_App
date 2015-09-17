@@ -37,13 +37,13 @@ class EventsController < AccessController
       @u <<j.event_id
     end  
       @event= Event.where(id: @u).where.not(username:current_user.username)
-      render :template=>"events/index.json.jbuilder", :status=> :ok, locals: { events: @event}, :formats => [:json]
+      render :template=>"events/views.json.jbuilder", :status=> :ok, locals: { events: @event}, :formats => [:json]
    
   end
 
   def myevents
     @event = Event.where(username: current_user.username)
-    render :template=>"events/index.json.jbuilder", :status=> :ok, locals: { events: @event}, :formats => [:json]
+    render :template=>"events/views.json.jbuilder", :status=> :ok, locals: { events: @event}, :formats => [:json]
   end
   
 
@@ -55,7 +55,7 @@ class EventsController < AccessController
       @j = UserEvent.new
       @event.user_events << @j
       current_user.user_events << @j
-      render :template=>"events/message.json.jbuilder",locals:{message: "you are welcome"},:success => true, :status => :ok ,:formats => [:json]
+      render :template=>"events/show.json.jbuilder", :status => :ok, :formats => [:json]
     end
   end
 
