@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   post "/search" => "events#search"
   post "/show" => "events#watch"
   post "/newevents" => "events#index"
-  put "/event_update" => "events#update"
-  delete "/event_delete" => "events#destroy"
+  post "/event_update" => "events#update"
+  post "/event_delete" => "events#destroy"
   
   get "/pages/welcome" => "pages#welcome"
 
